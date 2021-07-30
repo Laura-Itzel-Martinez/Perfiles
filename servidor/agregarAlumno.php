@@ -14,7 +14,7 @@
     $extension = explode(".", $nombreArchivo);
     $extension = $extension[1];
     $rutaTemporal = $_FILES['imagen']['tmp_name'];
-    $rutaDeServidor = "../perfiles";
+    $rutaDeServidor = "../perfiles/";
 
     $conexion=conexion();
 
@@ -24,7 +24,7 @@
                                         matricula,
                                         FechaNacimiento,
                                         especialidad,
-                                        sexo,foto) 
+                                        sexo,foto,extension) 
 
                         VALUES ('$nombre', 
                         '$apaterno', 
@@ -32,7 +32,7 @@
                         '$matricula',
                         '$fecha',
                         '$especialidad',
-                        '$sexo', '$nombreArchivo')";
+                        '$sexo', '$nombreArchivo','$extension')";
 
 $respuesta = mysqli_query($conexion, $sql);
 

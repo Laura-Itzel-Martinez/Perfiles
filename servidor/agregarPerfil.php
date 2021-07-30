@@ -17,13 +17,13 @@
     $extension = explode(".", $nombreArchivo);
     $extension = $extension[1];
     $rutaTemporal = $_FILES['imagen']['tmp_name'];
-    $rutaDeServidor = "../perfiles";
+    $rutaDeServidor = "../perfiles/";
 
     //subir un archivo
     //move_uploaded_file nos retorna un 1 si se subio y un 0 si no se subio
 
     if (move_uploaded_file($rutaTemporal, $rutaDeServidor, $nombreArchivo)) {
-        $insertarEnBD = agregarAlumno($nombre,$apaterno,$amaterno,$matricula,$fecha,$especialidad, $sexo,$nombreArchivo);
+        $insertarEnBD = agregarAlumno($nombre,$apaterno,$amaterno,$matricula,$fecha,$especialidad, $sexo,$nombreArchivo,$extension);
         
         if ($insertarEnBD) {
             $_SESSION['operacion'] = "insert";

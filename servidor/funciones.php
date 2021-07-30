@@ -2,7 +2,7 @@
 
     include "conexion.php";
 
-    function agregarAlumno($nombre,$apaterno,$amaterno,$matricula,$fecha,$especialidad, $sexo,$nombreArchivo) {
+    function agregarAlumno($nombre,$apaterno,$amaterno,$matricula,$fecha,$especialidad, $sexo,$nombreArchivo,$extension) {
         $conexion = conexion();
         $sql = "INSERT INTO t_perfiles_alumno (nombre
                                                 ,apaterno,
@@ -10,14 +10,14 @@
                                                 matricula,
                                                 FechaNacimiento,
                                                 especialidad,
-                                                sexo,foto) 
+                                                sexo,foto,extension) 
                 VALUES ('$nombre', 
                         '$apaterno', 
                         '$amaterno',
                         '$matricula',
                         '$fecha',
                         '$especialidad',
-                        '$sexo', '$nombreArchivo')";
+                        '$sexo', '$nombreArchivo', '$extension')";
 
         $respuesta = mysqli_query($conexion, $sql);
 

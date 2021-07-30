@@ -2,7 +2,7 @@
     include "servidor/conexion.php";
     $conexion = conexion();
     $sql = "SELECT id_perfil,nombre,apaterno,amaterno,matricula,fechaNacimiento,
-            especialidad,sexo,foto
+            especialidad,sexo,foto,extension
             FROM t_perfiles_alumno";
 
     $respuesta = mysqli_query($conexion, $sql);
@@ -40,7 +40,22 @@
             <td><?php echo $mostrar['matricula'];?></td>
             <td><?php echo $mostrar['especialidad'];?></td>
             <td><?php echo $mostrar['sexo']; ?></td>
-            <td><a href="perfiles/" target="_blank"><?php echo  $mostrar['foto']; ?></a></td>
+
+            <td>
+            <?php
+                $ext = $mostrar['extension'];
+                $imagen = '';
+                
+                if ($ext == "jpg" || $ext == "JPG") {
+                    $cadenaImagen = '<img src=' . 'perfiles/' . $mostrar['foto'] . ' width="50px" height="50px">';
+                    echo '<a href="mostrarPerfil.php?nombre=' . $mostrar['foto'] . '" target="_blank"> ' . $cadenaImagen . ' </a>';
+
+                }
+                
+            ?>
+            
+            </td>
+            </td>
             <td>
                 <form action="servidor/eliminarPerfil.php" method="POST">
                     <input type="text" hidden name="idPerfil" value="<?php echo $mostrar['id_perfil']?>">
