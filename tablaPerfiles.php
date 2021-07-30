@@ -46,7 +46,7 @@
                 $ext = $mostrar['extension'];
                 $imagen = '';
                 
-                if ($ext == "jpg" || $ext == "JPG") {
+                if ($ext == "jpg") {
                     $cadenaImagen = '<img src=' . 'perfiles/' . $mostrar['foto'] . ' width="50px" height="50px">';
                     echo '<a href="mostrarPerfil.php?nombre=' . $mostrar['foto'] . '" target="_blank"> ' . $cadenaImagen . ' </a>';
 

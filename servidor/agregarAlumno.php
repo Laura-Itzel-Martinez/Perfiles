@@ -36,7 +36,7 @@
 
 $respuesta = mysqli_query($conexion, $sql);
 
-if (move_uploaded_file($rutaTemporal, $rutaDeServidor, $nombreArchivo)) {
+if (move_uploaded_file($rutaTemporal, $rutaDeServidor. $nombreArchivo)) {
     
     if ($respuesta) {
         $_SESSION['operacion'] = "insert";
